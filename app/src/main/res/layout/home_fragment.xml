@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="jmew.ca.pulseplayer.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/heart_rate_fragment"
+        android:layout_width="fill_parent"
+        android:layout_height="350dp">
+
+        <RelativeLayout
+            android:id="@+id/heart_rate_fragment_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_margin="60dp">
+
+            <ImageView
+                android:id="@+id/plus_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_add_black_48dp"/>
+
+            <TextView
+                android:id="@+id/heartRateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:textSize="30sp"
+                android:text="@string/measuring" />
+
+            <RelativeLayout
+                android:id="@+id/heartRateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/heartRateText"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/bpm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="@string/bpm" />
+
+                <ImageView
+                    android:id="@+id/heartIcon"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_toStartOf="@id/bpm"
+                    android:src="@drawable/ic_action_action_favorite" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <com.hookedonplay.decoviewlib.DecoView
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            custom:dv_lineWidth="26dp"
+            android:id="@+id/dynamicArcView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentStart="false"
+            android:layout_margin="30dp"
+            android:indeterminate="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/heart_rate_fragment"
+        android:id="@+id/playlist_loading"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progress_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cpv_indeterminate="true"
+            app:cpv_thickness="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/progress_view"
+            android:textSize="14sp"
+            android:text="@string/playlist_loading_text"/>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/heart_rate_fragment"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/pulse_playlist" />
+
+</RelativeLayout>
